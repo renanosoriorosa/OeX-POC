@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using OeX.Auth.API.Extensions;
 using OeX.Auth.API.Interfaces;
+using OeX.Auth.Application.Base;
 using OeX.Auth.Application.Notificacoes;
 using OeX.Auth.Application.Notificacoes.Interfaces;
 
@@ -33,50 +34,56 @@ namespace OeX.Auth.API.Controllers
             return !_notificador.TemNotificacao();
         }
 
-        protected ActionResult CustomResponse(object result = null)
+        protected ActionResult CustomResponse<T>(T result = default)
         {
             if (OperacaoValida())
-                return Ok(Result.Ok(result));
+                return Ok(Result<T>.Ok(result));
 
-            return BadRequest(Result
+            return BadRequest(Result<T>
                               .Fail(_notificador
                                 .ObterNotificacoes()
                                 .Select(n => n.Mensagem)));
         }
 
-        protected ActionResult CustomUnauthorizedResponse()
+        protected ActionResult CustomUnauthorizedResponse<T>()
         {
-            return Unauthorized(Result.Fail("User not logged in", 401));
+            return Unauthorized(Result<T>.Fail("User not logged in"));
         }
 
-        protected ActionResult CustomFileResponse(byte[] fileBytes, string contentType, string fileName)
+        protected ActionResult CustomFileResponse<T>(byte[] fileBytes, string contentType, string fileName)
         {
             if (OperacaoValida())
                 return File(fileBytes, contentType, fileName);
 
-            return BadRequest(Result
+            return BadRequest(Result<T>
                               .Fail(_notificador
                                 .ObterNotificacoes()
                                 .Select(n => n.Mensagem)));
         }
 
-        protected ActionResult SendBadRequest(string message)
+        protected ActionResult SendBadRequest<T>(string message)
         {
-            return BadRequest(Result
+            return BadRequest(Result<T>
                               .Fail(message));
         }
 
-        protected ActionResult SendInternalErrorRequest(string message)
+        protected ActionResult SendInternalErrorRequest<T>(string message)
         {
-            return StatusCode(500, (Result
-                              .Fail(message, 500)));
+            return StatusCode(500, (Result<T>
+                              .Fail(message)));
         }
 
-        protected ActionResult CustomResponse(ModelStateDictionary modelState)
+        protected ActionResult SendExceptionRequest<T>(Exception exception)
+        {
+            return BadRequest(Result<T>
+                              .FailException(exception));
+        }
+
+        protected ActionResult CustomResponse<T>(ModelStateDictionary modelState)
         {
             if (!modelState.IsValid) NotificarErroModelInvalida(modelState);
 
-            return CustomResponse();
+            return CustomResponse<T>();
         }
 
         protected void NotificarErroModelInvalida(ModelStateDictionary modelState)

@@ -16,5 +16,6 @@ namespace OeX.Auth.Application.Usuarios.Dtos
         [StringLength(100, ErrorMessage = "O campo {0} deve ter entre {2} e {1} caracteres", MinimumLength = 6)]
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
+        public Guid EmpresaId { get; set; }
     }
 }

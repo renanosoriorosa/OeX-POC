@@ -9,6 +9,7 @@ using OeX.Auth.API.Extensions;
 using OeX.Auth.API.Interfaces;
 using OeX.Auth.Application.Notificacoes.Interfaces;
 using OeX.Auth.Application.Usuarios.Dtos;
+using OeX.Auth.Domain.Usuarios;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -21,14 +22,14 @@ namespace OeX.Auth.API.Controllers.V1
     [Route("api/v{version:apiVersion}/[controller]/[action]")]
     public class AutenticacaoController : MainController
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Usuario> _signInManager;
+        private readonly UserManager<Usuario> _userManager;
         private readonly AppSettings _appSettings;
         private readonly AuthenticationService _authenticationService;
         private readonly ILogger _logger;
 
-        public AutenticacaoController(SignInManager<IdentityUser> signInManager,
-            UserManager<IdentityUser> userManager,
+        public AutenticacaoController(SignInManager<Usuario> signInManager,
+            UserManager<Usuario> userManager,
             AuthenticationService authenticationService,
             IOptions<AppSettings> appSettings,
             IOptions<AppTokenSettings> appTokenSettings,
@@ -48,24 +49,17 @@ namespace OeX.Auth.API.Controllers.V1
         public async Task<ActionResult> Registrar(RegisterUserDto registerUser)
         {
             if (!ModelState.IsValid)
-                return CustomResponse(ModelState);
+                return CustomResponse<bool>(ModelState);
 
             if (registerUser.ConfirmPassword != registerUser.Password)
-                return SendBadRequest("As senhas não conferem.");
+                return SendBadRequest<bool>("As senhas não conferem.");
 
-            var user = new IdentityUser
-            {
-                UserName = registerUser.Email,
-                Email = registerUser.Email,
-                EmailConfirmed = true
-            };
+            var user = new Usuario(registerUser.Nome, registerUser.EmpresaId, registerUser.Email);
 
             var result = await _userManager.CreateAsync(user, registerUser.Password);
 
             foreach (var error in result.Errors)
-            {
                 NotificarErro(error.Description);
-            }
 
             return CustomResponse(registerUser);
         }
@@ -75,7 +69,7 @@ namespace OeX.Auth.API.Controllers.V1
         public async Task<ActionResult> Login(LoginUserDto loginUser)
         {
             if (!ModelState.IsValid)
-                return CustomResponse(ModelState);
+                return CustomResponse<bool>(ModelState);
 
             var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, false, true);
 
@@ -88,11 +82,11 @@ namespace OeX.Auth.API.Controllers.V1
             if (result.IsLockedOut)
             {
                 NotificarErro("O usuário foi bloqueado temporariamente");
-                return CustomResponse(loginUser);
+                return CustomResponse<LoginResponseDto>();
             }
 
             NotificarErro("Usuário ou senha incorretos");
-            return CustomResponse(loginUser);
+            return CustomResponse<LoginResponseDto>();
         }
 
         [HttpDelete(Name = "Remover")]
@@ -101,7 +95,7 @@ namespace OeX.Auth.API.Controllers.V1
             if (string.IsNullOrEmpty(emailUsuario))
             {
                 NotificarErro($"informe o e-mail do usuário.");
-                return CustomResponse();
+                return CustomResponse<bool>();
             }
 
             var user = await _userManager.FindByEmailAsync(emailUsuario);
@@ -109,18 +103,17 @@ namespace OeX.Auth.API.Controllers.V1
             if (user == null)
             {
                 NotificarErro($"O usuário {emailUsuario} não foi encontrado.");
-                return CustomResponse();
+                return CustomResponse<bool>();
             }
 
             try
             {
                 await _userManager.DeleteAsync(user);
-                return CustomResponse();
+                return CustomResponse<bool>();
             }
             catch (Exception e)
             {
-                NotificarErro($"Exceção: {e.Message}.");
-                return CustomResponse();
+                return SendExceptionRequest<bool>(e);
             }
         }
 

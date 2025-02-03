@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using OeX.Auth.API.Extensions;
+using OeX.Auth.Domain.Usuarios;
 using OeX.Auth.Infrastructure.Context;
 
 namespace OeX.Auth.API.Configuration
@@ -13,8 +15,7 @@ namespace OeX.Auth.API.Configuration
             var appSettingsSection = configuration.GetSection("AppTokenSettings");
             services.Configure<AppTokenSettings>(appSettingsSection);
 
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddRoles<IdentityRole>()
+            services.AddIdentity<Usuario, IdentityRole>()
                 .AddEntityFrameworkStores<RNContext>()
                 .AddErrorDescriber<IdentityMensagensPortugues>()
                 .AddDefaultTokenProviders();

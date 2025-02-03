@@ -7,10 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<RNContext>(options =>
-{
-    options
-        .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddIdentityConfig(builder.Configuration);
 
