@@ -15,7 +15,7 @@ namespace OeX.Auth.Domain.Empresas.Validations
 
             RuleFor(c => c.TempoTrabalho)
                 .GreaterThan(0)
-                .WithMessage("O campo tempo de trabalgo precisa ser maior que zero.");
+                .WithMessage("O campo tempo de trabalho precisa ser maior que zero.");
         }
     }
 }

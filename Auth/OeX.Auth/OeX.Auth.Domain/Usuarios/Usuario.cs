@@ -21,5 +21,14 @@ namespace OeX.Auth.Domain.Usuarios
             Email = email;
             EmailConfirmed = true;
         }
+
+        public Usuario(string nome, Empresa empresa, string email)
+        {
+            Nome = nome;
+            Empresa = empresa;
+            UserName = email;
+            Email = email;
+            EmailConfirmed = true;
+        }
     }
 }

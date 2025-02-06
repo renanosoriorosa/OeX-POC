@@ -16,5 +16,9 @@ namespace OeX.Auth.Infrastructure.Context
             base.OnModelCreating(modelBuilder);
         }
 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            return base.SaveChangesAsync(cancellationToken);
+        }
     }
 }

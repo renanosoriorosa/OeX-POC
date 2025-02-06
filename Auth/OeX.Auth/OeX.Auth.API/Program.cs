@@ -1,7 +1,9 @@
 using Asp.Versioning.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using OeX.Auth.API.Configuration;
+using OeX.Auth.Application.Empresas.Commands.Create;
 using OeX.Auth.Infrastructure.Context;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddMvc();
 
 builder.Services.ResolveDependencies();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateEmpresaCommandHandler).Assembly));
 
 var app = builder.Build();
 

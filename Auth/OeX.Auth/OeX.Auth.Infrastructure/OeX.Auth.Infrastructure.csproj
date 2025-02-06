@@ -25,8 +25,4 @@
     <ProjectReference Include="..\OeX.Auth.Domain\OeX.Auth.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>

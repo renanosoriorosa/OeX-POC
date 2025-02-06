@@ -8,11 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="12.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OeX.Auth.Domain\OeX.Auth.Domain.csproj" />
     <ProjectReference Include="..\OeX.Auth.Infrastructure\OeX.Auth.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Empresas\Commands\Edit\" />
+    <Folder Include="Empresas\Services\" />
+    <Folder Include="Empresas\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -9,5 +9,14 @@ namespace OeX.Auth.Domain.Empresas
         public string CNPJ { get; private set; }
         public int TempoTrabalho { get; private set; }
         public ICollection<Usuario> Usuarios { get; set; }
+
+        public Empresa() { }
+
+        public Empresa(string nome, string cNPJ, int tempoTrabalho)
+        {
+            Nome = nome;
+            CNPJ = cNPJ;
+            TempoTrabalho = tempoTrabalho;
+        }
     }
 }
