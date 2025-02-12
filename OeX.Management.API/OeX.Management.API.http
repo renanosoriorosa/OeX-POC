@@ -1,0 +1,6 @@
+@OeX.Management.API_HostAddress = http://localhost:5236
+
+GET {{OeX.Management.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

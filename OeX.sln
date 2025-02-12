@@ -21,13 +21,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E582B9D8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1A760123-AD83-4139-B524-4CD8C03D63B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Auth.API", "Auth\OeX.Auth\OeX.Auth.API\OeX.Auth.API.csproj", "{91438AF2-DA3A-478E-ABD1-F63AD661A719}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Auth.API", "Auth\OeX.Auth\OeX.Auth.API\OeX.Auth.API.csproj", "{91438AF2-DA3A-478E-ABD1-F63AD661A719}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Auth.Application", "Auth\OeX.Auth\OeX.Auth.Application\OeX.Auth.Application.csproj", "{688CC649-E707-4EC9-8C0B-A0F5C5A3BDA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Auth.Application", "Auth\OeX.Auth\OeX.Auth.Application\OeX.Auth.Application.csproj", "{688CC649-E707-4EC9-8C0B-A0F5C5A3BDA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Auth.Domain", "Auth\OeX.Auth\OeX.Auth.Domain\OeX.Auth.Domain.csproj", "{B20C7CF1-69BD-48B2-87AC-F9985BB4FB88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Auth.Domain", "Auth\OeX.Auth\OeX.Auth.Domain\OeX.Auth.Domain.csproj", "{B20C7CF1-69BD-48B2-87AC-F9985BB4FB88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Auth.Infrastructure", "Auth\OeX.Auth\OeX.Auth.Infrastructure\OeX.Auth.Infrastructure.csproj", "{7A373E4A-D634-43D2-ADFA-873E0DD007F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Auth.Infrastructure", "Auth\OeX.Auth\OeX.Auth.Infrastructure\OeX.Auth.Infrastructure.csproj", "{7A373E4A-D634-43D2-ADFA-873E0DD007F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.API", "OeX.Management.API\OeX.Management.API.csproj", "{FB6748A8-84A1-409D-8655-C3E69580D5A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.Application", "OeX.Management.Application\OeX.Management.Application.csproj", "{04B8841F-E5D1-4894-A22A-0635336CFFBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.Domain", "OeX.Management.Domain\OeX.Management.Domain.csproj", "{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.Infrastructure", "OeX.Management.Infrastructure\OeX.Management.Infrastructure.csproj", "{C1125687-AA82-42B4-9483-CACE4AE22E82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +59,22 @@ Global
 		{7A373E4A-D634-43D2-ADFA-873E0DD007F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A373E4A-D634-43D2-ADFA-873E0DD007F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A373E4A-D634-43D2-ADFA-873E0DD007F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6748A8-84A1-409D-8655-C3E69580D5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6748A8-84A1-409D-8655-C3E69580D5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6748A8-84A1-409D-8655-C3E69580D5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6748A8-84A1-409D-8655-C3E69580D5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B8841F-E5D1-4894-A22A-0635336CFFBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B8841F-E5D1-4894-A22A-0635336CFFBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B8841F-E5D1-4894-A22A-0635336CFFBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B8841F-E5D1-4894-A22A-0635336CFFBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +92,10 @@ Global
 		{688CC649-E707-4EC9-8C0B-A0F5C5A3BDA7} = {C0178C0A-1398-4634-8646-E3C257850550}
 		{B20C7CF1-69BD-48B2-87AC-F9985BB4FB88} = {C0178C0A-1398-4634-8646-E3C257850550}
 		{7A373E4A-D634-43D2-ADFA-873E0DD007F8} = {C0178C0A-1398-4634-8646-E3C257850550}
+		{FB6748A8-84A1-409D-8655-C3E69580D5A7} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
+		{04B8841F-E5D1-4894-A22A-0635336CFFBE} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
+		{D56DCEB5-935C-4DED-9F1C-1D810EF03F13} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
+		{C1125687-AA82-42B4-9483-CACE4AE22E82} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF1020D3-63BA-483E-BBFF-2D7AFE1662A2}
