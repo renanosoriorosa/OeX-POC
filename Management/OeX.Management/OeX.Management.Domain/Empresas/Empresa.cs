@@ -4,7 +4,7 @@ using OeX.Management.Domain.Commons;
 
 namespace OeX.Management.Domain.Empresas
 {
-    public class Empresa
+    public class Empresa : Entity<Guid>
     {
         public string Nome { get; private set; }
         public string CNPJ { get; private set; }

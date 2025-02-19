@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using OeX.Management.Domain.Commons;
 using OeX.Management.Domain.Empresas;
 namespace OeX.Management.Domain.MotivosParada
 {
-    public class MotivoParada
+    public class MotivoParada : Entity <long>
     {
         //-----------------------------------
-        [Required(ErrorMessage = "Campo {0} é obrigatório")]
-        [StringLength(25, MinimumLength = 3, ErrorMessage = "O campo {0} deve ter entre {2} a {1} caracteres")]
-        public string Codigo { get; set; }
+        [StringLength(25)]
+        public string Codigo { get; private set; }
 
         //-----------------------------------
-        [StringLength(200, ErrorMessage = "O numero máximo de caracteres é {1}")]
-        [AllowNull]
-        public string Descricao { get; set; }
+        [StringLength(200)]
+        public string? Descricao { get; private set; }
         
         //-----------------------------------
-        public int EmpresaId { get; set; }
-        public virtual Empresa Empresa { get; set; }
+        public Guid EmpresaId { get; private set; }
+        public Empresa Empresa { get; private set; }
     }
 }

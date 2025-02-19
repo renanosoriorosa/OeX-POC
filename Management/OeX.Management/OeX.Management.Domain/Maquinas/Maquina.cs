@@ -10,24 +10,21 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace OeX.Management.Domain.Maquinas
 {
-	public class Maquina
+	public class Maquina : Entity<int>
 	{
         //-----------------------------------
-        [Required(ErrorMessage = "Campo {0} é obrigatório")]
-        [StringLength(25, MinimumLength = 3, ErrorMessage = "O campo {0} deve ter entre {2} a {1} caracteres")]
-        public string Nome { get; set; }
+        [StringLength(25)]
+        public string Nome { get; private set; }
 
-		[StringLength(200, ErrorMessage = "O numero máximo de caracteres é {1}")]
-		[AllowNull]
-		public string Descricao { get; set; }
+		[StringLength(200)]
+		public string? Descricao { get; private set; }
 
         //-----------------------------------
-        [Required(ErrorMessage = "Campo {0} é obrigatório")]
-        public double CapacidadeProdutiva { get; set; }
+        public int CapacidadeProdutiva { get; private set; }
 
 		//-----------------------------------
-		public int EmpresaId { get; set; }
-		public virtual Empresa Empresa { get; set; }
+		public Guid EmpresaId { get; private set; }
+		public Empresa Empresa { get; private set; }
 
 	}
 }
