@@ -8,10 +8,10 @@ namespace OeX.Auth.Domain.Empresas.Validations
         {
             RuleFor(c => c.Nome)
                     .NotEmpty().WithMessage("O campo nome precisa ser fornecido.")
-                    .Length(3, 20).WithMessage("O campo código precisa ter entre {MinLength} e {MaxLength} caracteres.");
+                    .Length(3, 20).WithMessage("O campo nome precisa ter entre {MinLength} e {MaxLength} caracteres.");
 
             RuleFor(c => c.CNPJ)
-                .Length(14).WithMessage("O campo CNPJ precisa ter entre 14 caracteres.");
+                .Length(14).WithMessage("O campo CNPJ precisa ter 14 caracteres.");
 
             RuleFor(c => c.TempoTrabalho)
                 .GreaterThan(0)

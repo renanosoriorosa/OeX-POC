@@ -35,5 +35,11 @@ namespace OeX.Auth.API.Controllers.V1
                 return SendExceptionRequest<bool>(e);
             }
         }
+
+        [HttpGet] 
+        public async Task<IActionResult> Teste()
+        {
+            return Ok();
+        }
     }
 }

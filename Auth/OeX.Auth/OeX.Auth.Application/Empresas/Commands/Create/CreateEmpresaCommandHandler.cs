@@ -30,7 +30,7 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
         public async Task<bool> Handle(CreateEmpresaCommand request, CancellationToken cancellationToken)
         {
             var empresa = new Empresa(request.Nome, request.CNPJ, request.TempoTrabalho);
-            var usuario = new Usuario(request.Nome, empresa, request.Email);
+            var usuario = new Usuario(request.NomeUsuario, empresa, request.Email);
 
             if (request.Password != request.ConfirmPassword)
             {

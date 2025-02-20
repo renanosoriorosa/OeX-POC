@@ -4,6 +4,7 @@ using OeX.Auth.API.Extensions;
 using OeX.Auth.API.Interfaces;
 using OeX.Auth.Application.Notificacoes;
 using OeX.Auth.Application.Notificacoes.Interfaces;
+using OeX.Auth.Application.Tenants;
 using OeX.Auth.Domain.Common;
 using OeX.Auth.Domain.Empresas.Interfaces;
 using OeX.Auth.Infrastructure.Context;
@@ -23,6 +24,7 @@ namespace OeX.Auth.API.Configuration
 
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IUser, AspNetUser>();
+            services.AddScoped<ITenantService, TenantService>();
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 

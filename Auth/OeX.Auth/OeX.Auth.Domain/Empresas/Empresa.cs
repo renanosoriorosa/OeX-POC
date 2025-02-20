@@ -1,5 +1,6 @@
 ﻿using OeX.Auth.Domain.Commons;
 using OeX.Auth.Domain.Usuarios;
+using System.ComponentModel.DataAnnotations;
 
 namespace OeX.Auth.Domain.Empresas
 {

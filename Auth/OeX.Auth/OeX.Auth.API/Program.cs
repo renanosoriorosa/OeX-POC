@@ -1,6 +1,7 @@
 using Asp.Versioning.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using OeX.Auth.API.Configuration;
+using OeX.Auth.API.Middlewares;
 using OeX.Auth.Application.Empresas.Commands.Create;
 using OeX.Auth.Infrastructure.Context;
 using System.Reflection;
@@ -33,6 +34,8 @@ builder.Services.ResolveDependencies();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateEmpresaCommandHandler).Assembly));
 
+builder.Services.AddHttpContextAccessor();
+
 var app = builder.Build();
 
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
@@ -42,5 +45,7 @@ app.UseApiConfig(app.Environment);
 app.MapControllers();
 
 app.UseSwaggerConfig(apiVersionDescriptionProvider);
+
+app.UseMiddleware<TenantMiddleware>();
 
 app.Run();
