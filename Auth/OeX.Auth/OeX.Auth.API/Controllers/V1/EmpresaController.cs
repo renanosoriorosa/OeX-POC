@@ -7,6 +7,7 @@ using OeX.Auth.API.Interfaces;
 using OeX.Auth.Application.Empresas.Commands.Create;
 using OeX.Auth.Application.Notificacoes.Interfaces;
 
+//teste yur
 namespace OeX.Auth.API.Controllers.V1
 {
     [ApiController]
