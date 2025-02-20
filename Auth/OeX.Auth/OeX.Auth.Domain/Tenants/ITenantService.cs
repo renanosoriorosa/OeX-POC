@@ -1,4 +1,4 @@
-﻿namespace OeX.Auth.Application.Tenants
+﻿namespace OeX.Auth.Domain.Tenants
 {
     public interface ITenantService
     {

@@ -1,4 +1,6 @@
-﻿namespace OeX.Auth.Application.Tenants
+﻿using OeX.Auth.Domain.Tenants;
+
+namespace OeX.Auth.Application.Tenants
 {
     public class TenantService : ITenantService
     {

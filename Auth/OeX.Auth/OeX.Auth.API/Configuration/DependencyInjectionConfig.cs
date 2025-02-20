@@ -7,6 +7,7 @@ using OeX.Auth.Application.Notificacoes.Interfaces;
 using OeX.Auth.Application.Tenants;
 using OeX.Auth.Domain.Common;
 using OeX.Auth.Domain.Empresas.Interfaces;
+using OeX.Auth.Domain.Tenants;
 using OeX.Auth.Infrastructure.Context;
 using OeX.Auth.Infrastructure.Repository.Empresas;
 using OeX.Auth.Infrastructure.UoW;

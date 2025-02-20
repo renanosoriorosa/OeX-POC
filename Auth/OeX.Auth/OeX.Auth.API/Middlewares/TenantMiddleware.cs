@@ -1,5 +1,4 @@
-﻿using OeX.Auth.API.Interfaces;
-using OeX.Auth.Application.Tenants;
+﻿using OeX.Auth.Domain.Tenants;
 
 namespace OeX.Auth.API.Middlewares;
 public class TenantMiddleware
