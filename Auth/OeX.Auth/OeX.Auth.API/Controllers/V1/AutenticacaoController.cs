@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using OeX.Auth.API.Extensions;
 using OeX.Auth.API.Interfaces;
 using OeX.Auth.Application.Notificacoes.Interfaces;
 using OeX.Auth.Application.Usuarios.Dtos;
+using OeX.Auth.Application.Usuarios.Queries;
 using OeX.Auth.Domain.Usuarios;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -27,6 +29,7 @@ namespace OeX.Auth.API.Controllers.V1
         private readonly AppSettings _appSettings;
         private readonly AuthenticationService _authenticationService;
         private readonly ILogger _logger;
+        private readonly IMediator _mediator;
 
         public AutenticacaoController(SignInManager<Usuario> signInManager,
             UserManager<Usuario> userManager,
@@ -35,13 +38,15 @@ namespace OeX.Auth.API.Controllers.V1
             IOptions<AppTokenSettings> appTokenSettings,
             INotificador notificador,
             IUser user,
-            ILogger<AutenticacaoController> logger) : base(notificador, user)
+            ILogger<AutenticacaoController> logger,
+            IMediator mediator) : base(notificador, user)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _appSettings = appSettings.Value;
             _logger = logger;
             _authenticationService = authenticationService;
+            _mediator = mediator;
         }
 
         [AllowAnonymous]
@@ -115,14 +120,6 @@ namespace OeX.Auth.API.Controllers.V1
             {
                 return SendExceptionRequest<bool>(e);
             }
-        }
-
-        [HttpGet(Name = "ListagemUsuarios")]
-        public ActionResult ListagemUsuarios()
-        {
-            var users = _userManager.Users;
-
-            return CustomResponse(users);
         }
 
         private async Task<LoginResponseDto> GerarJWT(string email)

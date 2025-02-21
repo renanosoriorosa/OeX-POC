@@ -26,12 +26,15 @@ namespace OeX.Auth.Infrastructure.Context
             var tenantId = _tenantService.GetTenant();
 
             modelBuilder.Entity<Empresa>().HasQueryFilter(u => u.Id.ToString() == tenantId);
-            modelBuilder.Entity<Usuario>().HasQueryFilter(u => u.EmpresaId.ToString() == tenantId);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
     }
 }

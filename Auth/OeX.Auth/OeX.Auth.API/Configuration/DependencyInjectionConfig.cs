@@ -8,8 +8,10 @@ using OeX.Auth.Application.Tenants;
 using OeX.Auth.Domain.Common;
 using OeX.Auth.Domain.Empresas.Interfaces;
 using OeX.Auth.Domain.Tenants;
+using OeX.Auth.Domain.Usuarios.Interfaces;
 using OeX.Auth.Infrastructure.Context;
 using OeX.Auth.Infrastructure.Repository.Empresas;
+using OeX.Auth.Infrastructure.Repository.Usuarios;
 using OeX.Auth.Infrastructure.UoW;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -22,7 +24,7 @@ namespace OeX.Auth.API.Configuration
             services.AddScoped<RNContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<AuthenticationService>();
-
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<INotificador, Notificador>();
             services.AddScoped<IUser, AspNetUser>();
             services.AddScoped<ITenantService, TenantService>();

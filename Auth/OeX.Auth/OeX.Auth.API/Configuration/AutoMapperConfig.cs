@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using OeX.Auth.Application.Usuarios.Dtos;
+using OeX.Auth.Domain.Usuarios;
 
 namespace OeX.Auth.API.AutoMapper
 {
@@ -6,6 +8,7 @@ namespace OeX.Auth.API.AutoMapper
     {
         public AutoMapperConfig()
         {
+            CreateMap<Usuario, UsuarioDto>().ReverseMap();
         }
     }
 }
