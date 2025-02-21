@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OeX.Auth.API.Interfaces;
 using OeX.Auth.Application.Notificacoes.Interfaces;
+using OeX.Auth.Application.Usuarios.Commands;
+using OeX.Auth.Application.Usuarios.Dtos;
 using OeX.Auth.Application.Usuarios.Queries;
 
 namespace OeX.Auth.API.Controllers.V1
@@ -27,6 +29,23 @@ namespace OeX.Auth.API.Controllers.V1
             try
             {
                 return CustomResponse(await _mediator.Send(query));
+            }
+            catch (Exception e)
+            {
+                return SendExceptionRequest<bool>(e);
+            }
+        }
+
+        [HttpPost(Name = "Create")]
+        public async Task<ActionResult> Create(RegisterUserDto registerUser)
+        {
+            try
+            {
+                return CustomResponse(await _mediator.Send(new CreateUserCommand(
+                                                            registerUser.Nome,
+                                                            registerUser.Email,
+                                                            registerUser.Password,
+                                                            registerUser.ConfirmPassword)));
             }
             catch (Exception e)
             {

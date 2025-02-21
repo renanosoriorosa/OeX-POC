@@ -50,26 +50,6 @@ namespace OeX.Auth.API.Controllers.V1
         }
 
         [AllowAnonymous]
-        [HttpPost(Name = "Registrar")]
-        public async Task<ActionResult> Registrar(RegisterUserDto registerUser)
-        {
-            if (!ModelState.IsValid)
-                return CustomResponse<bool>(ModelState);
-
-            if (registerUser.ConfirmPassword != registerUser.Password)
-                return SendBadRequest<bool>("As senhas não conferem.");
-
-            var user = new Usuario(registerUser.Nome, registerUser.EmpresaId, registerUser.Email);
-
-            var result = await _userManager.CreateAsync(user, registerUser.Password);
-
-            foreach (var error in result.Errors)
-                NotificarErro(error.Description);
-
-            return CustomResponse(registerUser);
-        }
-
-        [AllowAnonymous]
         [HttpPost(Name = "Login")]
         public async Task<ActionResult> Login(LoginUserDto loginUser)
         {
