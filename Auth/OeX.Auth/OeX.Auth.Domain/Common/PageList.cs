@@ -9,7 +9,7 @@
         public int PageNumber
         {
             get => _pageNumber;
-            set => _pageNumber = value > 0 ? ++value : 1;
+            set => _pageNumber = ++value;
         }
     }
 }
