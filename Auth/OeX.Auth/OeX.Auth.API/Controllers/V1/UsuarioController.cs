@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OeX.Auth.API.Interfaces;
 using OeX.Auth.Application.Notificacoes.Interfaces;
@@ -46,6 +47,19 @@ namespace OeX.Auth.API.Controllers.V1
                                                             registerUser.Email,
                                                             registerUser.Password,
                                                             registerUser.ConfirmPassword)));
+            }
+            catch (Exception e)
+            {
+                return SendExceptionRequest<bool>(e);
+            }
+        }
+
+        [HttpDelete(Name = "Delete")]
+        public async Task<ActionResult> Delete(string id)
+        {
+            try
+            {
+                return CustomResponse(await _mediator.Send(new DeleteUserCommand(id)));
             }
             catch (Exception e)
             {

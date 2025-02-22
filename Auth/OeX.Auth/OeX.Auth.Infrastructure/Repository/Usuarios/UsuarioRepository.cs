@@ -27,5 +27,10 @@ namespace OeX.Auth.Infrastructure.Repository.Usuarios
         {
             return await Db.Usuarios.CountAsync();
         }
+
+        public async Task<Usuario?> ObterPorId(string id)
+        {
+            return await Db.Usuarios.FindAsync(id);
+        }
     }
 }

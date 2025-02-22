@@ -74,34 +74,6 @@ namespace OeX.Auth.API.Controllers.V1
             return CustomResponse<LoginResponseDto>();
         }
 
-        [HttpDelete(Name = "Remover")]
-        public async Task<ActionResult> Remover(string emailUsuario)
-        {
-            if (string.IsNullOrEmpty(emailUsuario))
-            {
-                NotificarErro($"informe o e-mail do usuário.");
-                return CustomResponse<bool>();
-            }
-
-            var user = await _userManager.FindByEmailAsync(emailUsuario);
-
-            if (user == null)
-            {
-                NotificarErro($"O usuário {emailUsuario} não foi encontrado.");
-                return CustomResponse<bool>();
-            }
-
-            try
-            {
-                await _userManager.DeleteAsync(user);
-                return CustomResponse<bool>();
-            }
-            catch (Exception e)
-            {
-                return SendExceptionRequest<bool>(e);
-            }
-        }
-
         private async Task<LoginResponseDto> GerarJWT(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
