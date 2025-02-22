@@ -23,5 +23,9 @@ namespace OeX.Auth.Infrastructure.Repository.Usuarios
                            .ToListAsync();
         }
 
+        public async Task<int> CountTotalUsers()
+        {
+            return await Db.Usuarios.CountAsync();
+        }
     }
 }
