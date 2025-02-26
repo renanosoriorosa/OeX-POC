@@ -1,11 +1,17 @@
 ﻿
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore;
-using OeX.Management.Domain.Usuarios;
+using OeX.Management.Domain.Empresas;
+using OeX.Management.Domain.Manutecoes;
+using OeX.Management.Domain.Maquinas;
+using OeX.Management.Domain.MotivosManutencao;
+using OeX.Management.Domain.MotivosParada;
+using OeX.Management.Domain.Paradas;
+
 
 namespace OeX.Management.Infrastructure.Context
 {
-    public class RNContext : IdentityDbContext<Usuario>
+    public class RNContext : DbContext
     {
         public RNContext(DbContextOptions<RNContext> options) : base(options) { }
 
@@ -21,5 +27,13 @@ namespace OeX.Management.Infrastructure.Context
         {
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Manutencao> Manutencoes { get; set; }
+        public DbSet<Parada> Paradas { get; set; }
+        public DbSet<Maquina> Maquinas { get; set; }
+        public DbSet<MotivoManutencao> MotivosManutencao { get; set; }
+        public DbSet<MotivoParada> MotivosParada { get; set; }
+
     }
 }
