@@ -33,7 +33,6 @@ namespace OeX.Auth.Infrastructure.Context
             return base.SaveChangesAsync(cancellationToken);
         }
 
-        public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
     }
