@@ -29,13 +29,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Auth.Domain", "Auth\OeX
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Auth.Infrastructure", "Auth\OeX.Auth\OeX.Auth.Infrastructure\OeX.Auth.Infrastructure.csproj", "{7A373E4A-D634-43D2-ADFA-873E0DD007F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.API", "Management\Oex.Management\OeX.Management.API\OeX.Management.API.csproj", "{FB6748A8-84A1-409D-8655-C3E69580D5A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Management.API", "Management\Oex.Management\OeX.Management.API\OeX.Management.API.csproj", "{FB6748A8-84A1-409D-8655-C3E69580D5A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.Application", "Management\Oex.Management\OeX.Management.Application\OeX.Management.Application.csproj", "{04B8841F-E5D1-4894-A22A-0635336CFFBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Management.Application", "Management\Oex.Management\OeX.Management.Application\OeX.Management.Application.csproj", "{04B8841F-E5D1-4894-A22A-0635336CFFBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.Domain", "Management\Oex.Management\OeX.Management.Domain\OeX.Management.Domain.csproj", "{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Management.Domain", "Management\Oex.Management\OeX.Management.Domain\OeX.Management.Domain.csproj", "{D56DCEB5-935C-4DED-9F1C-1D810EF03F13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Management.Infrastructure", "Management\Oex.Management\OeX.Management.Infrastructure\OeX.Management.Infrastructure.csproj", "{C1125687-AA82-42B4-9483-CACE4AE22E82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Management.Infrastructure", "Management\Oex.Management\OeX.Management.Infrastructure\OeX.Management.Infrastructure.csproj", "{C1125687-AA82-42B4-9483-CACE4AE22E82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.API", "Dashboard\OeX.Dashboard\OeX.Dashboard.API\OeX.Dashboard.API.csproj", "{EF352E08-D4F4-4CD7-A544-5122003FEC9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Application", "Dashboard\OeX.Dashboard\OeX.Dashboard.Application\OeX.Dashboard.Application.csproj", "{41CCF96B-B93D-491E-ABB5-D76A4FF04040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Domain", "Dashboard\OeX.Dashboard\OeX.Dashboard.Domain\OeX.Dashboard.Domain.csproj", "{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Infrastructure", "Dashboard\OeX.Dashboard\OeX.Dashboard.Infrastructure\OeX.Dashboard.Infrastructure.csproj", "{6B38B66E-692A-4FB9-942E-971B94241216}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +83,22 @@ Global
 		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1125687-AA82-42B4-9483-CACE4AE22E82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF352E08-D4F4-4CD7-A544-5122003FEC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF352E08-D4F4-4CD7-A544-5122003FEC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF352E08-D4F4-4CD7-A544-5122003FEC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF352E08-D4F4-4CD7-A544-5122003FEC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41CCF96B-B93D-491E-ABB5-D76A4FF04040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41CCF96B-B93D-491E-ABB5-D76A4FF04040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41CCF96B-B93D-491E-ABB5-D76A4FF04040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41CCF96B-B93D-491E-ABB5-D76A4FF04040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B38B66E-692A-4FB9-942E-971B94241216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B38B66E-692A-4FB9-942E-971B94241216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B38B66E-692A-4FB9-942E-971B94241216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B38B66E-692A-4FB9-942E-971B94241216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +120,10 @@ Global
 		{04B8841F-E5D1-4894-A22A-0635336CFFBE} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
 		{D56DCEB5-935C-4DED-9F1C-1D810EF03F13} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
 		{C1125687-AA82-42B4-9483-CACE4AE22E82} = {B3E5E016-0155-4A71-88EA-82DCA64E033D}
+		{EF352E08-D4F4-4CD7-A544-5122003FEC9F} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
+		{41CCF96B-B93D-491E-ABB5-D76A4FF04040} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
+		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
+		{6B38B66E-692A-4FB9-942E-971B94241216} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF1020D3-63BA-483E-BBFF-2D7AFE1662A2}
