@@ -37,13 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Management.Domain", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Management.Infrastructure", "Management\Oex.Management\OeX.Management.Infrastructure\OeX.Management.Infrastructure.csproj", "{C1125687-AA82-42B4-9483-CACE4AE22E82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.API", "Dashboard\OeX.Dashboard\OeX.Dashboard.API\OeX.Dashboard.API.csproj", "{EF352E08-D4F4-4CD7-A544-5122003FEC9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Dashboard.API", "Dashboard\OeX.Dashboard\OeX.Dashboard.API\OeX.Dashboard.API.csproj", "{EF352E08-D4F4-4CD7-A544-5122003FEC9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Application", "Dashboard\OeX.Dashboard\OeX.Dashboard.Application\OeX.Dashboard.Application.csproj", "{41CCF96B-B93D-491E-ABB5-D76A4FF04040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Dashboard.Application", "Dashboard\OeX.Dashboard\OeX.Dashboard.Application\OeX.Dashboard.Application.csproj", "{41CCF96B-B93D-491E-ABB5-D76A4FF04040}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Domain", "Dashboard\OeX.Dashboard\OeX.Dashboard.Domain\OeX.Dashboard.Domain.csproj", "{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Dashboard.Domain", "Dashboard\OeX.Dashboard\OeX.Dashboard.Domain\OeX.Dashboard.Domain.csproj", "{37F20BAA-6016-44A7-B610-61DBEFCE4DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Infrastructure", "Dashboard\OeX.Dashboard\OeX.Dashboard.Infrastructure\OeX.Dashboard.Infrastructure.csproj", "{6B38B66E-692A-4FB9-942E-971B94241216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Dashboard.Infrastructure", "Dashboard\OeX.Dashboard\OeX.Dashboard.Infrastructure\OeX.Dashboard.Infrastructure.csproj", "{6B38B66E-692A-4FB9-942E-971B94241216}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{ED0AB992-1544-4F9C-A63D-B29B2FFA784B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -124,6 +126,7 @@ Global
 		{41CCF96B-B93D-491E-ABB5-D76A4FF04040} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
 		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
 		{6B38B66E-692A-4FB9-942E-971B94241216} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
+		{ED0AB992-1544-4F9C-A63D-B29B2FFA784B} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF1020D3-63BA-483E-BBFF-2D7AFE1662A2}
