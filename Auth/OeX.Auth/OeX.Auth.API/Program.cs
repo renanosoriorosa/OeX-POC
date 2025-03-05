@@ -14,6 +14,8 @@ builder.Services.AddDbContext<RNContext>(options =>
 
 builder.Services.AddIdentityConfig(builder.Configuration);
 
+builder.Services.AddResiliencePolicies(builder.Configuration);
+
 builder.Services.AddJWTConfig(builder.Configuration);
 
 builder.Services.AddAutoMapper(typeof(Program));

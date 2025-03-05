@@ -62,6 +62,15 @@ namespace OeX.Auth.Application.Base
                 Exception = exception != null ? new ExceptionDetails(exception) : null
             };
         }
+
+        public static Result<T> FailException(ExceptionDetails exception)
+        {
+            return new Result<T>
+            {
+                Success = false,
+                Exception = exception
+            };
+        }
     }
 
     public class ExceptionDetails

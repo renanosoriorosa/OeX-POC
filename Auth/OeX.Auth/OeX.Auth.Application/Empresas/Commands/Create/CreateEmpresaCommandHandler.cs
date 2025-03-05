@@ -16,15 +16,17 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
     {
         private readonly UserManager<Usuario> _userManager;
         private readonly IEmpresaRepository _empresaRepository;
-
+        private readonly IMediator _mediator;
         public CreateEmpresaCommandHandler(
             INotificador notificador,
             UserManager<Usuario> userManager,
             IUnitOfWork uow,
-            IEmpresaRepository empresaRepository) : base(notificador, uow)
+            IEmpresaRepository empresaRepository,
+            IMediator mediator) : base(notificador, uow)
         {
             _userManager = userManager;
             _empresaRepository = empresaRepository;
+            _mediator = mediator;
         }
 
         public async Task<bool> Handle(CreateEmpresaCommand request, CancellationToken cancellationToken)
@@ -62,6 +64,8 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
                     await Commit();
                     return false;
                 }
+
+                var resultDashboard = await _mediator.Send(new CreateEmpresaDashboardCommand());
 
                 return true;
             }
