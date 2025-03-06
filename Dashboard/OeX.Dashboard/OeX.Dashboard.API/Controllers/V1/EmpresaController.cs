@@ -26,6 +26,7 @@ namespace OeX.Dashboard.API.Controllers.V1
         {
             try
             {
+                return StatusCode(500);
                 return CustomResponse(await _mediator.Send(command));
             }
             catch (Exception e)

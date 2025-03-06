@@ -76,8 +76,8 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
 
                 if (TemNotificacao())
                 {
-                    _empresaRepository.Remover(empresa);
                     await _userManager.DeleteAsync(usuario);
+                    _empresaRepository.Remover(empresa);
                     await Commit();
                     return false;
                 }

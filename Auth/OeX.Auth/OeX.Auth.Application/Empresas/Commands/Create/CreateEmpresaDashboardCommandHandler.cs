@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using OeX.Auth.Application.Base;
 using OeX.Auth.Application.Extensions;
+using Polly.CircuitBreaker;
 using System.Net;
 using System.Text;
 using System.Text.Json;
@@ -52,6 +53,10 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
                     return Result<bool>.FailException(response.Exception);
 
                 return Result<bool>.Fail(response.Messages!);
+            }
+            catch (BrokenCircuitException)
+            {
+                return Result<bool>.Fail("Desculpe, o sistema está fora do ar no momento. Tente novamente mais tarde.");
             }
             catch (Exception e)
             {
