@@ -16,5 +16,13 @@ namespace OeX.Dashboard.Domain.Empresas
             CNPJ = cNPJ;
             TempoTrabalho = tempoTrabalho;
         }
+
+        public Empresa(Guid id, string nome, string cNPJ, int tempoTrabalho)
+        {
+            Id = id;
+            Nome = nome;
+            CNPJ = cNPJ;
+            TempoTrabalho = tempoTrabalho;
+        }
     }
 }

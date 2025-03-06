@@ -46,8 +46,8 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
             try
             {
                 _empresaRepository.Adicionar(empresa);
-                
-                if(!await Commit())
+
+                if (!await Commit())
                 {
                     Notificar("Falha ao salvar empresa no banco.");
                     return false;
@@ -65,7 +65,22 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
                     return false;
                 }
 
-                var resultDashboard = await _mediator.Send(new CreateEmpresaDashboardCommand());
+                var resultDashboard = await _mediator.Send(
+                                        new CreateEmpresaDashboardCommand(
+                                                        empresa.Id,
+                                                        empresa.Nome,
+                                                        empresa.CNPJ,
+                                                        empresa.TempoTrabalho));
+
+                Notificar(resultDashboard);
+
+                if (TemNotificacao())
+                {
+                    _empresaRepository.Remover(empresa);
+                    await _userManager.DeleteAsync(usuario);
+                    await Commit();
+                    return false;
+                }
 
                 return true;
             }
@@ -75,37 +90,7 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
             }
         }
 
-        private bool ValidaIdentity(Usuario usuario, string password)
-        {
-            var userValidationResult = _userManager.UserValidators
-                        .Select(v => v.ValidateAsync(_userManager, usuario))
-                        .ToList();
 
-            var errors = userValidationResult
-                .Where(result => !result.Result.Succeeded)
-                .SelectMany(result => result.Result.Errors);
 
-            // Validação da senha
-            var passwordValidationResult = _userManager.PasswordValidators
-                .Select(v => v.ValidateAsync(_userManager, usuario, password))
-                .ToList();
-
-            var passwordErrors = passwordValidationResult
-                                .Where(result => !result.Result.Succeeded)
-                                .SelectMany(result => result.Result.Errors);
-
-            // Combina os erros
-            var allErrors = errors.Concat(passwordErrors);
-
-            if (allErrors.Any())
-            {
-                foreach (var error in allErrors)
-                    Notificar(error.Description);
-
-                return false;
-            }
-
-            return true;
-        }
     }
 }

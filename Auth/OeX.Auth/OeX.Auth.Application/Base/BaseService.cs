@@ -52,5 +52,24 @@ namespace OeX.Auth.Application.Base
 
             return false;
         }
+
+        protected void Notificar<T>(Result<T> result)
+        {
+            if (!result.Success)
+            {
+                if (result.Messages is not null)
+                {
+                    foreach (var message in result.Messages)
+                        Notificar(message);
+                }
+
+                if (result.Exception is not null)
+                {
+                    Notificar(result.Exception.Message);
+                    Notificar(result.Exception.InnerExceptionMessage ?? "");
+                    Notificar(result.Exception.StackTrace ?? "");
+                }
+            }
+        }
     }
 }

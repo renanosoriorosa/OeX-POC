@@ -9,5 +9,13 @@ namespace OeX.Auth.Application.Empresas.Commands.Create
         public string Nome { get; set; }
         public string CNPJ { get; set; }
         public int TempoTrabalho { get; set; }
+
+        public CreateEmpresaDashboardCommand(Guid id, string nome, string cNPJ, int tempoTrabalho)
+        {
+            Id = id;
+            Nome = nome;
+            CNPJ = cNPJ;
+            TempoTrabalho = tempoTrabalho;
+        }
     }
 }

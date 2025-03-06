@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.0" />
     <ProjectReference Include="..\OeX.Dashboard.Domain\OeX.Dashboard.Domain.csproj" />
     <ProjectReference Include="..\OeX.Dashboard.Infrastructure\OeX.Dashboard.Infrastructure.csproj" />
   </ItemGroup>
