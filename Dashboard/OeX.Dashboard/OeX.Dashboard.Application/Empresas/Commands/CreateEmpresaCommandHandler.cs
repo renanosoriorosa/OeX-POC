@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OeX.Auth.Domain.Common;
+using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Application.Base;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
 using OeX.Dashboard.Domain.Empresas;

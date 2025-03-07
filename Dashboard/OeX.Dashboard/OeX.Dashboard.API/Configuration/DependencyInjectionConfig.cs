@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
-using OeX.Auth.Domain.Common;
 using OeX.Dashboard.API.Extensions;
 using OeX.Dashboard.API.Interfaces;
 using OeX.Dashboard.Application.Notificacoes;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
+using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Domain.Empresas.Interfaces;
 using OeX.Dashboard.Infrastructure.Context;
 using OeX.Dashboard.Infrastructure.Repository.Empresas;

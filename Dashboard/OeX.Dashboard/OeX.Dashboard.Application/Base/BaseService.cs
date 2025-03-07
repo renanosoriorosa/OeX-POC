@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
-using OeX.Auth.Domain.Common;
+using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Application.Notificacoes;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
 

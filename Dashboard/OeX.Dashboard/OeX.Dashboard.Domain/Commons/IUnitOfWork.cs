@@ -1,4 +1,4 @@
-﻿namespace OeX.Auth.Domain.Common
+﻿namespace OeX.Dashboard.Domain.Common
 {
     public interface IUnitOfWork
     {

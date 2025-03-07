@@ -1,4 +1,5 @@
-﻿using OeX.Dashboard.Domain.Empresas;
+﻿using Microsoft.EntityFrameworkCore;
+using OeX.Dashboard.Domain.Empresas;
 using OeX.Dashboard.Domain.Empresas.Interfaces;
 using OeX.Dashboard.Infrastructure.Context;
 
@@ -21,6 +22,11 @@ namespace OeX.Dashboard.Infrastructure.Repository.Empresas
         public void Atualizar(Empresa entity)
         {
             _context.Update(entity);
+        }
+
+        public async Task<Empresa?> ObterPorId(Guid id)
+        {
+            return await _context.Empresas.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public void Remover(Empresa entity)

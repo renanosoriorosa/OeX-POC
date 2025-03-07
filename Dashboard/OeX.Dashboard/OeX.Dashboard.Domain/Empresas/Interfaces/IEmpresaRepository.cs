@@ -5,5 +5,6 @@
         void Adicionar(Empresa entity);
         void Atualizar(Empresa entity);
         void Remover(Empresa entity);
+        Task<Empresa?> ObterPorId(Guid id);
     }
 }
