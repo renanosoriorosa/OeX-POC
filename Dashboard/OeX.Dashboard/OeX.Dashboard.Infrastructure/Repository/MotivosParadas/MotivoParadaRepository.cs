@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OeX.Dashboard.Domain.Empresas;
 using OeX.Dashboard.Domain.MotivosParada;
 using OeX.Dashboard.Domain.MotivosParada.Interfaces;
 using OeX.Dashboard.Infrastructure.Context;
@@ -15,11 +14,14 @@ namespace OeX.Dashboard.Infrastructure.Repository.MotivoParadaRepository
             _context = context;
         }
 
-        public async Task<MotivoParada?> BuscarPorIdManagement(long managementId)
+        public async Task<MotivoParada?> BuscarPorIdManagementEEmpresa(
+            long managementId,
+            Guid empresaId)
         {
             return await _context.MotivosParada
-                           .FirstOrDefaultAsync(x => x.ManagementId == 
-                                                      managementId);
+                           .FirstOrDefaultAsync(x => 
+                                    x.ManagementId == managementId &&
+                                    x.EmpresaId == empresaId);
         }
 
         public void Adicionar(MotivoParada entity)

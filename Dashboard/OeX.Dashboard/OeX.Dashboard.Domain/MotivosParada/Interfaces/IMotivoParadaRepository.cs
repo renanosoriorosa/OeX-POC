@@ -5,6 +5,8 @@
         void Adicionar(MotivoParada entity);
         void Atualizar(MotivoParada entity);
         void Remover(MotivoParada entity);
-        Task<MotivoParada?> BuscarPorIdManagement(long managementId);
+        Task<MotivoParada?> BuscarPorIdManagementEEmpresa(
+            long managementId,
+            Guid empresaId);
     }
 }

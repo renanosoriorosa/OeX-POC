@@ -10,9 +10,13 @@ using OeX.Dashboard.Infrastructure.Repository.Empresas;
 using OeX.Dashboard.Infrastructure.Repository.MotivoParadaRepository;
 using OeX.Dashboard.Infrastructure.UoW;
 using OeX.Dashboard.Application.Empresas.Commands;
+using Microsoft.EntityFrameworkCore;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<Worker>();
+
+builder.Services.AddDbContext<RNContext>(c =>
+                         c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var RabbitMQSettingsSection = builder.Configuration.GetSection("RabbitMQ");
 builder.Services.Configure<RabbitMQSettings>(RabbitMQSettingsSection);

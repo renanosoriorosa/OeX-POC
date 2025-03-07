@@ -29,7 +29,9 @@ namespace OeX.Dashboard.Application.MotivosParadas.Commands
                     return Result<bool>.Fail($"Empresa {request.EmpresaId} não encontrada.");
 
                 var motivoParada = await _motivoParadaRepository
-                                                .BuscarPorIdManagement(request.Id);
+                                                .BuscarPorIdManagementEEmpresa(
+                                                        request.Id, 
+                                                        empresa.Id);
 
                 if (motivoParada is null)
                 {
