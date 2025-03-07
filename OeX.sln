@@ -47,6 +47,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OeX.Dashboard.Infrastructur
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{ED0AB992-1544-4F9C-A63D-B29B2FFA784B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MotivoParada", "MotivoParada", "{36A484D8-2D9C-42C6-AAF3-87F5C409F11F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OeX.Dashboard.Consumer.MotivoParada", "Dashboard\Consumers\MotivoParada\OeX.Dashboard.Consumer.MotivoParada\OeX.Dashboard.Consumer.MotivoParada.csproj", "{F4A5F3BD-DDBB-467F-B872-E1883E5B6BED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +105,10 @@ Global
 		{6B38B66E-692A-4FB9-942E-971B94241216}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B38B66E-692A-4FB9-942E-971B94241216}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B38B66E-692A-4FB9-942E-971B94241216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A5F3BD-DDBB-467F-B872-E1883E5B6BED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A5F3BD-DDBB-467F-B872-E1883E5B6BED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A5F3BD-DDBB-467F-B872-E1883E5B6BED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A5F3BD-DDBB-467F-B872-E1883E5B6BED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +135,8 @@ Global
 		{37F20BAA-6016-44A7-B610-61DBEFCE4DDE} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
 		{6B38B66E-692A-4FB9-942E-971B94241216} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
 		{ED0AB992-1544-4F9C-A63D-B29B2FFA784B} = {E1E46C6B-ABB6-45D1-A512-BA40B5FD4CE7}
+		{36A484D8-2D9C-42C6-AAF3-87F5C409F11F} = {ED0AB992-1544-4F9C-A63D-B29B2FFA784B}
+		{F4A5F3BD-DDBB-467F-B872-E1883E5B6BED} = {36A484D8-2D9C-42C6-AAF3-87F5C409F11F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF1020D3-63BA-483E-BBFF-2D7AFE1662A2}
