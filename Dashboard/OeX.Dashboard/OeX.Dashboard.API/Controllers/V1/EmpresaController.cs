@@ -11,7 +11,6 @@ namespace OeX.Dashboard.API.Controllers.V1
 {
     [ApiController]
     [ApiVersion("1.0")]
-    [Authorize]
     [Route("api/integracao/v{version:apiVersion}/[controller]/[action]")]
     public class EmpresaController : MainController
     {
