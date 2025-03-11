@@ -1,4 +1,7 @@
+using Asp.Versioning.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
+using OeX.Auth.API.Configuration;
+using OeX.Management.API.Configuration;
 using OeX.Management.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,24 +11,35 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<RNContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddJWTConfig(builder.Configuration);
+
+builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddApiConfig();
+
+builder.Services.AddSwaggerConfig();
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
+builder.Services.AddMvc();
+
+builder.Services.ResolveDependencies();
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app.UseApiConfig(app.Environment);
 
 app.MapControllers();
+
+app.UseSwaggerConfig(apiVersionDescriptionProvider);
+
 
 app.Run();

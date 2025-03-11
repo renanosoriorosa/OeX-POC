@@ -6,6 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Controllers\NovaPasta\**" />
+    <Content Remove="Controllers\NovaPasta\**" />
+    <EmbeddedResource Remove="Controllers\NovaPasta\**" />
+    <None Remove="Controllers\NovaPasta\**" />
+  </ItemGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Asp.Versioning.Http" Version="8.0.0" />
 		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.0.0" />
@@ -21,10 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OeX.Management.Application\OeX.Management.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Configuration\" />
   </ItemGroup>
 
 </Project>

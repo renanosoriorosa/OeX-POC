@@ -11,9 +11,6 @@ namespace OeX.Management.Domain.Paradas.Validations
     {
         public ParadaValidation() 
         {
-            RuleFor(j => j.MotivoParada)
-                .NotEmpty().WithMessage("Digite o do motivo da parada!");
-
             RuleFor(j => j.DataHoraFim)
                 .NotEmpty().WithMessage("Digite a da hora fim da parada!")
                 .GreaterThan(j => j.DataHoraInicio).WithMessage("Data hora fim deve ser maior que Data hora inicio!");
@@ -27,9 +24,9 @@ namespace OeX.Management.Domain.Paradas.Validations
             RuleFor(j => j.EmpresaId)
                  .NotEmpty();
 
-            RuleFor(j => j.MotivoManutencaoId)
+            RuleFor(j => j.MotivoParadaId)
                  .GreaterThan(0);
-            
+
         }
 
     }

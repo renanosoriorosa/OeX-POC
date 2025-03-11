@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OeX.Management.Infrastructure.Context;
 
@@ -11,9 +12,11 @@ using OeX.Management.Infrastructure.Context;
 namespace OeX.Management.Infrastructure.Migrations
 {
     [DbContext(typeof(RNContext))]
-    partial class RNContextModelSnapshot : ModelSnapshot
+    [Migration("20250304232148_AlteracaoClasse")]
+    partial class AlteracaoClasse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,16 +185,11 @@ namespace OeX.Management.Infrastructure.Migrations
                     b.Property<int>("MaquinaId")
                         .HasColumnType("int");
 
-                    b.Property<long>("MotivoParadaId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
 
                     b.HasIndex("EmpresaId");
 
                     b.HasIndex("MaquinaId");
-
-                    b.HasIndex("MotivoParadaId");
 
                     b.ToTable("Paradas");
                 });
@@ -262,16 +260,9 @@ namespace OeX.Management.Infrastructure.Migrations
                         .HasForeignKey("MaquinaId")
                         .IsRequired();
 
-                    b.HasOne("OeX.Management.Domain.MotivosParada.MotivoParada", "MotivoParada")
-                        .WithMany()
-                        .HasForeignKey("MotivoParadaId")
-                        .IsRequired();
-
                     b.Navigation("Empresa");
 
                     b.Navigation("Maquina");
-
-                    b.Navigation("MotivoParada");
                 });
 #pragma warning restore 612, 618
         }

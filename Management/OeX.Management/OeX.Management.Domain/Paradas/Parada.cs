@@ -14,8 +14,8 @@ namespace OeX.Management.Domain.Paradas
         public DateTime? DataHoraFim { get; private set; }
 
         //----------------------------------------
-        public int MotivoManutencaoId { get; private set; }
-        public  MotivoParada MotivoParada { get; private set; }
+        public long MotivoParadaId { get; private set; }
+        public MotivoParada MotivoParada { get; private set; }
 
         //----------------------------------------
         public Guid EmpresaId { get; private set; }

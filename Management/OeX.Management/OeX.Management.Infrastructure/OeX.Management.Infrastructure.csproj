@@ -24,5 +24,9 @@
   <ItemGroup>
     <ProjectReference Include="..\OeX.Management.Domain\OeX.Management.Domain.csproj" />
   </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Repository\Empresas\" />
+  </ItemGroup>
 
 </Project>

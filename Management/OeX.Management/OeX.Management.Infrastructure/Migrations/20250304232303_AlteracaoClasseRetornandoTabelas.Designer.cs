@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OeX.Management.Infrastructure.Context;
 
@@ -11,9 +12,11 @@ using OeX.Management.Infrastructure.Context;
 namespace OeX.Management.Infrastructure.Migrations
 {
     [DbContext(typeof(RNContext))]
-    partial class RNContextModelSnapshot : ModelSnapshot
+    [Migration("20250304232303_AlteracaoClasseRetornandoTabelas")]
+    partial class AlteracaoClasseRetornandoTabelas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
