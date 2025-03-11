@@ -74,7 +74,7 @@ namespace OeX.Auth.API.Configuration
         {
             var info = new OpenApiInfo()
             {
-                Title = "API - TITLE",
+                Title = "API - Auth",
                 Version = description.ApiVersion.ToString(),
                 Description = "Description API.",
                 Contact = new OpenApiContact() { Name = "Renan Osório da Rosa", Email = "renanosoriogd@gmail.com" },

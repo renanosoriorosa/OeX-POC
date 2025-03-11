@@ -1,4 +1,4 @@
-﻿using OeX.Auth.Domain.Common;
+﻿using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Infrastructure.Context;
 
 namespace OeX.Dashboard.Infrastructure.UoW
