@@ -8,6 +8,7 @@ using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Domain.Empresas.Interfaces;
 using OeX.Dashboard.Domain.Maquinas.Interfaces;
 using OeX.Dashboard.Domain.MotivosParada.Interfaces;
+using OeX.Dashboard.Domain.OrdensProducao.Interfaces;
 using OeX.Dashboard.Infrastructure.Context;
 using OeX.Dashboard.Infrastructure.Repository.Empresas;
 using OeX.Dashboard.Infrastructure.Repository.Maquinas;
@@ -31,6 +32,7 @@ namespace OeX.Dashboard.API.Configuration
             services.AddScoped<IEmpresaRepository, EmpresaRepository>();
             services.AddScoped<IMaquinaRepository, MaquinaRepository>();
             services.AddScoped<IMotivoParadaRepository, MotivoParadaRepository>();
+            services.AddScoped<IOrdemProducaoRepository, OrdemProducaoRepository>();
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 

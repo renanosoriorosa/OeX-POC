@@ -6,6 +6,7 @@ using OeX.Dashboard.Domain.Manutecoes;
 using OeX.Dashboard.Domain.Maquinas;
 using OeX.Dashboard.Domain.MotivosManutencao;
 using OeX.Dashboard.Domain.MotivosParada;
+using OeX.Dashboard.Domain.OrdensProducao;
 using OeX.Dashboard.Domain.Paradas;
 
 namespace OeX.Dashboard.Infrastructure.Context
@@ -34,5 +35,6 @@ namespace OeX.Dashboard.Infrastructure.Context
         public DbSet<MotivoManutencao> MotivosManutencao { get; set; }
         public DbSet<MotivoParada> MotivosParada { get; set; }
         public DbSet<IndicadorMensal> IndicadoresMensal { get; set; }
+        public DbSet<OrdemProducao> OrdemProducao { get; set; }
     }
 }
