@@ -14,7 +14,7 @@ namespace OeX.Dashboard.Application.OrdensProducao.Queries
 
         public Task<int> Handle(GetCountTotalOSQuery request, CancellationToken cancellationToken)
         {
-            return _ordemProducaoRepository.CountTotalByMonth(request.Month);
+            return _ordemProducaoRepository.CountTotalByMonth(request.Month, request.IdMaquina);
         }
     }
 }

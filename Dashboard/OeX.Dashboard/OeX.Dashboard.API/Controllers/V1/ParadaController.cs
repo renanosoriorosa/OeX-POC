@@ -6,6 +6,7 @@ using OeX.Dashboard.API.Interfaces;
 using OeX.Dashboard.Application.Maquinas.Queries;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
 using OeX.Dashboard.Application.OrdensProducao.Queries;
+using OeX.Dashboard.Application.Paradas.Queries;
 
 namespace OeX.Dashboard.API.Controllers.V1
 {
@@ -13,21 +14,21 @@ namespace OeX.Dashboard.API.Controllers.V1
     [ApiVersion("1.0")]
     [Authorize]
     [Route("api/v{version:apiVersion}/[controller]/[action]")]
-    public class OrdemProducaoController : MainController
+    public class ParadaController : MainController
     {
         private readonly IMediator _mediator;
 
-        public OrdemProducaoController(INotificador notificador, IUser appUser, IMediator mediator) : base(notificador, appUser)
+        public ParadaController(INotificador notificador, IUser appUser, IMediator mediator) : base(notificador, appUser)
         {
             _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCountTotalOS(int month, int idMaquina)
+        public async Task<IActionResult> GetCountTotalByMonth(int month, int idMaquina)
         {
             try
             {
-                return CustomResponse(await _mediator.Send(new GetCountTotalOSQuery(month, idMaquina)));
+                return CustomResponse(await _mediator.Send(new GetCountTotalParadaQuery(month, idMaquina)));
             }
             catch (Exception e)
             {

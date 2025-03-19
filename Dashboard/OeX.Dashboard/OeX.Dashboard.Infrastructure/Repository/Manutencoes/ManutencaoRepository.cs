@@ -1,21 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OeX.Dashboard.Domain.OrdensProducao.Interfaces;
+using OeX.Dashboard.Domain.Manutecoes.Interfaces;
 using OeX.Dashboard.Infrastructure.Context;
 
 namespace OeX.Dashboard.Infrastructure.Repository.MotivoParadaRepository
 {
-    public class OrdemProducaoRepository : IOrdemProducaoRepository
+    public class ManutencaoRepository : IManutencaoRepository
     {
         private readonly RNContext _context;
 
-        public OrdemProducaoRepository(RNContext context)
+        public ManutencaoRepository(RNContext context)
         {
             _context = context;
         }
 
         public async Task<int> CountTotalByMonth(int month, int idMaquina)
         {
-            var query = _context.OrdemProducao
+            var query = _context.Manutencoes
                             .Where(x => x.DataHoraInicio.Month == month);
 
             if (idMaquina > 0)
