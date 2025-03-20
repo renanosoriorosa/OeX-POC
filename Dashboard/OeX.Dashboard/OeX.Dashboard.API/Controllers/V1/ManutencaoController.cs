@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OeX.Dashboard.API.Interfaces;
+using OeX.Dashboard.Application.Manutencao.Queries;
 using OeX.Dashboard.Application.Manutencoes.Queries;
 using OeX.Dashboard.Application.Maquinas.Queries;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
@@ -30,6 +31,32 @@ namespace OeX.Dashboard.API.Controllers.V1
             try
             {
                 return CustomResponse(await _mediator.Send(new GetCountTotalManutencaoQuery(month, idMaquina)));
+            }
+            catch (Exception e)
+            {
+                return SendExceptionRequest<int>(e);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetMTTRByMonth(int month, int idMaquina)
+        {
+            try
+            {
+                return CustomResponse(await _mediator.Send(new GetMTTRByMonthQuery(month, idMaquina)));
+            }
+            catch (Exception e)
+            {
+                return SendExceptionRequest<int>(e);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetMTBFMonth(int month, int idMaquina)
+        {
+            try
+            {
+                return CustomResponse(await _mediator.Send(new GetMTTRByMonthQuery(month, idMaquina)));
             }
             catch (Exception e)
             {

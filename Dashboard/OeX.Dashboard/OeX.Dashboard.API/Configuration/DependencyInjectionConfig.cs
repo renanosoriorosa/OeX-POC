@@ -6,6 +6,7 @@ using OeX.Dashboard.Application.Notificacoes;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
 using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Domain.Empresas.Interfaces;
+using OeX.Dashboard.Domain.Indicadores.Interfaces;
 using OeX.Dashboard.Domain.Manutecoes.Interfaces;
 using OeX.Dashboard.Domain.Maquinas.Interfaces;
 using OeX.Dashboard.Domain.MotivosParada.Interfaces;
@@ -37,6 +38,7 @@ namespace OeX.Dashboard.API.Configuration
             services.AddScoped<IOrdemProducaoRepository, OrdemProducaoRepository>();
             services.AddScoped<IParadaRepository, ParadaRepository>();
             services.AddScoped<IManutencaoRepository, ManutencaoRepository>();
+            services.AddScoped<IIndicadorMensalRepository, IndicadorMensalRepository>();
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 

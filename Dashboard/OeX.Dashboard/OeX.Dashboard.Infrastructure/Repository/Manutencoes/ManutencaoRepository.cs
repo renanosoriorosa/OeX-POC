@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OeX.Dashboard.Domain.Manutecoes.Interfaces;
+using OeX.Dashboard.Domain.Maquinas.Enums;
 using OeX.Dashboard.Infrastructure.Context;
 
 namespace OeX.Dashboard.Infrastructure.Repository.MotivoParadaRepository
