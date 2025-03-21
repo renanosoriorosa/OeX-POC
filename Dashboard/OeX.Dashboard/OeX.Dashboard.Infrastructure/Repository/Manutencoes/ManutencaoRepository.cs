@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OeX.Dashboard.Domain.Manutecoes.Interfaces;
-using OeX.Dashboard.Domain.Maquinas.Enums;
 using OeX.Dashboard.Infrastructure.Context;
 
 namespace OeX.Dashboard.Infrastructure.Repository.MotivoParadaRepository
@@ -14,10 +13,11 @@ namespace OeX.Dashboard.Infrastructure.Repository.MotivoParadaRepository
             _context = context;
         }
 
-        public async Task<int> CountTotalByMonth(int month, int idMaquina)
+        public async Task<int> CountTotalByMonth(int month, int year, int idMaquina)
         {
             var query = _context.Manutencoes
-                            .Where(x => x.DataHoraInicio.Month == month);
+                            .Where(x => x.DataHoraInicio.Month == month &&
+                                        x.DataHoraInicio.Year == year);
 
             if (idMaquina > 0)
                 query.Where(x => x.MaquinaId == idMaquina);

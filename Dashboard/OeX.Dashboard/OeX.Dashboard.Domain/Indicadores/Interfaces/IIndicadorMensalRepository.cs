@@ -1,4 +1,4 @@
-﻿using OeX.Dashboard.Domain.Maquinas.Enums;
+﻿using OeX.Dashboard.Domain.Indicadores.Enums;
 
 namespace OeX.Dashboard.Domain.Indicadores.Interfaces
 {
@@ -6,11 +6,13 @@ namespace OeX.Dashboard.Domain.Indicadores.Interfaces
     {
         Task<IndicadorMensal?> GetIndicadorByMonthAndMaquina(
             int month,
+            int year,
             int idMaquina,
             IndicadorEnum indicador);
 
         Task<List<IndicadorMensal>> GetIndicadorByMonthAllMaquina(
             int month,
+            int year,
             IndicadorEnum indicador);
     }
 }

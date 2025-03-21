@@ -24,11 +24,11 @@ namespace OeX.Dashboard.API.Controllers.V1
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCountTotalByMonth(int month, int idMaquina)
+        public async Task<IActionResult> GetCountTotalByMonth(int month, int year, int idMaquina)
         {
             try
             {
-                return CustomResponse(await _mediator.Send(new GetCountTotalParadaQuery(month, idMaquina)));
+                return CustomResponse(await _mediator.Send(new GetCountTotalParadaQuery(month, year, idMaquina)));
             }
             catch (Exception e)
             {

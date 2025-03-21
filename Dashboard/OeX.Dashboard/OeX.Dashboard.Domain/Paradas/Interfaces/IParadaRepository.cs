@@ -2,6 +2,6 @@
 {
     public interface IParadaRepository
     {
-        Task<int> CountTotalByMonth(int month, int idMaquina);
+        Task<int> CountTotalByMonth(int month, int year, int idMaquina);
     }
 }

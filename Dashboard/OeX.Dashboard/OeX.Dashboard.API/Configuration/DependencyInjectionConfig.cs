@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Options;
 using OeX.Dashboard.API.Extensions;
 using OeX.Dashboard.API.Interfaces;
+using OeX.Dashboard.Application.IndicadoresMensais.Interfaces;
+using OeX.Dashboard.Application.IndicadoresMensais.Services;
 using OeX.Dashboard.Application.Notificacoes;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
 using OeX.Dashboard.Domain.Common;
@@ -39,6 +41,8 @@ namespace OeX.Dashboard.API.Configuration
             services.AddScoped<IParadaRepository, ParadaRepository>();
             services.AddScoped<IManutencaoRepository, ManutencaoRepository>();
             services.AddScoped<IIndicadorMensalRepository, IndicadorMensalRepository>();
+
+            services.AddScoped<IIndicadorMensalService, IndicadorMensalService>();
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
