@@ -34,5 +34,18 @@ namespace OeX.Dashboard.API.Controllers.V1
                 return SendExceptionRequest<int>(e);
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetQualidadeProducaoMensal(int year, int idMaquina)
+        {
+            try
+            {
+                return CustomResponse(await _mediator.Send(new GetQualidadeProducaoMensal(year, idMaquina)));
+            }
+            catch (Exception e)
+            {
+                return SendExceptionRequest<int>(e);
+            }
+        }
     }
 }
