@@ -4,11 +4,31 @@ using OeX.Management.Infrastructure.Context;
 
 namespace OeX.Management.Infrastructure.Repository.MotivosManutencao
 {
-    public class MotivoManutencaoRepository : Repository<MotivoManutencao>, IMotivoManutencaoRepository
+    public class MotivoManutencaoRepository : IMotivoManutencaoRepository
     {
-        public MotivoManutencaoRepository(RNContext db) : base(db)
+        private readonly RNContext _rnContext;
+        public MotivoManutencaoRepository(RNContext rnContext)
         {
-
+            _rnContext = rnContext;
         }
+
+        public void Adicionar(MotivoManutencao entity)
+        {
+            _rnContext.MotivosManutencao.Add(entity);
+            _rnContext.SaveChanges();
+        }
+
+        public void Atualizar(MotivoManutencao entity)
+        {
+            _rnContext.MotivosManutencao.Update(entity);
+            _rnContext.SaveChanges();
+        }
+
+        public void Remover(MotivoManutencao entity)
+        {
+            _rnContext.MotivosManutencao.Remove(entity); //se tiver só o id preenchido remove igual
+            _rnContext.SaveChanges();
+        }
+
     }
 }

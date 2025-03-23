@@ -11,6 +11,8 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using OeX.Management.API.Configuration;
 using OeX.Management.Domain.MotivosParada.Interfaces;
 using OeX.Management.Infrastructure.Repository.MotivosParada;
+using OeX.Management.Application.MotivosParada.Services;
+using OeX.Management.Application.MotivosParada.Interfaces;
 
 namespace OeX.Auth.API.Configuration
 {
@@ -26,6 +28,7 @@ namespace OeX.Auth.API.Configuration
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
             services.AddScoped<IMotivoParadaRepository, MotivoParadaRepository>();
+            services.AddScoped<IMotivoParadaService, MotivoParadaService>();
 
             return services;
         }

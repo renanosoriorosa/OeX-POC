@@ -9,11 +9,31 @@ using System.Threading.Tasks;
 
 namespace OeX.Management.Infrastructure.Repository.Manutencoes
 {
-    public class ManutencaoRepository : Repository<Manutencao>, IManutencaoRepository
+    public class ManutencaoRepository : IManutencaoRepository
     {
-        public ManutencaoRepository(RNContext db) : base(db)
+        private readonly RNContext _rnContext;
+        public ManutencaoRepository(RNContext rnContext)
         {
-
+            _rnContext = rnContext;
         }
+
+        public void Adicionar(Manutencao entity)
+        {
+            _rnContext.Manutencoes.Add(entity);
+            _rnContext.SaveChanges();
+        }
+
+        public void Atualizar(Manutencao entity)
+        {
+            _rnContext.Manutencoes.Update(entity);
+            _rnContext.SaveChanges();
+        }
+
+        public void Remover(Manutencao entity)
+        {
+            _rnContext.Manutencoes.Remove(entity); //se tiver só o id preenchido remove igual
+            _rnContext.SaveChanges();
+        }
+
     }
 }
