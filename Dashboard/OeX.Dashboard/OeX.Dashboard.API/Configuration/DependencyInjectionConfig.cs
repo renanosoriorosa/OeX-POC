@@ -2,13 +2,18 @@
 using Microsoft.Extensions.Options;
 using OeX.Dashboard.API.Extensions;
 using OeX.Dashboard.API.Interfaces;
+using OeX.Dashboard.Application.IndicadoresMensais.Interfaces;
+using OeX.Dashboard.Application.IndicadoresMensais.Services;
 using OeX.Dashboard.Application.Notificacoes;
 using OeX.Dashboard.Application.Notificacoes.Interfaces;
 using OeX.Dashboard.Domain.Common;
 using OeX.Dashboard.Domain.Empresas.Interfaces;
+using OeX.Dashboard.Domain.Indicadores.Interfaces;
+using OeX.Dashboard.Domain.Manutecoes.Interfaces;
 using OeX.Dashboard.Domain.Maquinas.Interfaces;
 using OeX.Dashboard.Domain.MotivosParada.Interfaces;
 using OeX.Dashboard.Domain.OrdensProducao.Interfaces;
+using OeX.Dashboard.Domain.Paradas.Interfaces;
 using OeX.Dashboard.Infrastructure.Context;
 using OeX.Dashboard.Infrastructure.Repository.Empresas;
 using OeX.Dashboard.Infrastructure.Repository.Maquinas;
@@ -33,6 +38,11 @@ namespace OeX.Dashboard.API.Configuration
             services.AddScoped<IMaquinaRepository, MaquinaRepository>();
             services.AddScoped<IMotivoParadaRepository, MotivoParadaRepository>();
             services.AddScoped<IOrdemProducaoRepository, OrdemProducaoRepository>();
+            services.AddScoped<IParadaRepository, ParadaRepository>();
+            services.AddScoped<IManutencaoRepository, ManutencaoRepository>();
+            services.AddScoped<IIndicadorMensalRepository, IndicadorMensalRepository>();
+
+            services.AddScoped<IIndicadorMensalService, IndicadorMensalService>();
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 

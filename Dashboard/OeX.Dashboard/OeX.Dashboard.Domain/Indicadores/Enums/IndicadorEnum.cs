@@ -1,4 +1,4 @@
-﻿namespace OeX.Dashboard.Domain.Maquinas.Enums
+﻿namespace OeX.Dashboard.Domain.Indicadores.Enums
 {
     public enum IndicadorEnum
     {

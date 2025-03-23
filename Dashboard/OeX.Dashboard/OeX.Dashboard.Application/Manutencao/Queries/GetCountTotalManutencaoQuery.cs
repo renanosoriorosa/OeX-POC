@@ -1,14 +1,14 @@
 ﻿using MediatR;
 
-namespace OeX.Dashboard.Application.OrdensProducao.Queries
+namespace OeX.Dashboard.Application.Manutencoes.Queries
 {
-    public class GetCountTotalOSQuery : IRequest<int>
+    public class GetCountTotalManutencaoQuery : IRequest<int>
     {
         public int Month { get; set; }
         public int IdMaquina { get; set; }
         public int Year { get; set; }
 
-        public GetCountTotalOSQuery(int month, int year, int idMaquina)
+        public GetCountTotalManutencaoQuery(int month, int year, int idMaquina)
         {
             Month = month;
             IdMaquina = idMaquina;

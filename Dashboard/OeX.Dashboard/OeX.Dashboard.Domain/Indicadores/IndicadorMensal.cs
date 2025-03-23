@@ -1,7 +1,7 @@
 ﻿using OeX.Dashboard.Domain.Commons;
 using OeX.Dashboard.Domain.Empresas;
+using OeX.Dashboard.Domain.Indicadores.Enums;
 using OeX.Dashboard.Domain.Maquinas;
-using OeX.Dashboard.Domain.Maquinas.Enums;
 
 namespace OeX.Dashboard.Domain.Indicadores
 {
